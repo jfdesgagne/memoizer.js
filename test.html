@@ -1,0 +1,25 @@
+<html>
+
+<head>
+</head>
+
+<body>
+    <h1>Should only compute once</h1>
+    <script src="memoizer.js"></script>
+    <script>
+    function sum() {
+        document.write('computing sum of ', arguments[0] + ' + ' + arguments[1] + '<br />');
+        var total = 0;
+        for (var i = 0; i < arguments.length; i++) {
+            total += arguments[i];
+        }
+        return total;
+    }
+
+    var memoizedSum = memoizer(null, sum);
+    document.write('sum of 2 and 2 first time ' + memoizedSum(2, 2) + '<br />');
+    document.write('sum of 2 and 2 second time ' + memoizedSum(2, 2) + '<br />');
+    </script>
+</body>
+
+</html>
